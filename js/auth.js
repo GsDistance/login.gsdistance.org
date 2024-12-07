@@ -16,12 +16,4 @@ window.addEventListener('load', async function() {
 
     signInDiv.style.display = isSignUp === 'true' ? 'none' : 'block';
     signUpDiv.style.display = isSignUp === 'true' ? 'block' : 'none';
-
-    // Handle authentication state changes
-    window.Clerk.addListener(({ user }) => {
-        if (user) {
-            // Redirect to success page after successful authentication
-            window.location.href = '/success.html';
-        }
-    });
 });
