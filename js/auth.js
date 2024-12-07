@@ -10,7 +10,7 @@ window.addEventListener('load', async function() {
     if (isSignUp === 'true') {
         window.Clerk.mountSignUp(signUpDiv);
     }
-    else{
+    else {
         window.Clerk.mountSignIn(signInDiv);
     }
 
@@ -20,8 +20,8 @@ window.addEventListener('load', async function() {
     // Handle authentication state changes
     window.Clerk.addListener(({ user }) => {
         if (user) {
-            // User is signed in, redirect to your main application
-            window.location.href = 'https://www.gsdistance.org/';
+            // Redirect to success page after successful authentication
+            window.location.href = '/success.html';
         }
     });
 });
