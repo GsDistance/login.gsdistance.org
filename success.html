@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Successful - GsDistance</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" href="https://www.gsdistance.org/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="https://storage.gsdistance.org/store/logo/svg1/gsdLogoDark.svg" type="image/svg+xml">
     <style>
         .user-info {
             margin: 2rem 0;
@@ -39,7 +39,7 @@
             <h2 id="user-name"></h2>
             <p id="user-email"></p>
         </div>
-        <a href="https://www.gsdistance.org" class="main-link">Go to Main Page</a>
+        <a id="link" href="https://www.gsdistance.org" class="main-link">Go to Main Page</a>
     </div>
 
     <!-- Clerk Script -->
@@ -52,6 +52,12 @@
     </script>
     <script>
         window.addEventListener('load', async function() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.has("referer")) {
+                document.getElementById("link").href = params.get("referer");
+                document.getElementById("link").textContent = "Go to " + params.get("referer");
+            }
+
             await window.Clerk.load();
             
             const user = window.Clerk.user;

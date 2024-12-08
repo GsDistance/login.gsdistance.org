@@ -21,7 +21,7 @@ window.addEventListener('load', async function() {
     window.Clerk.addListener(({ user }) => {
         if (user) {
             // Redirect to success page after successful authentication
-            window.location.href = '/success.html';
+            window.location.href = '/success.html/' + window.location.search;
         }
     });
 });
